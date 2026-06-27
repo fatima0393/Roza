@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roza</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+    /* ══════════════════════════════
+       DIV 1 — HERO
+    ══════════════════════════════ */
+    .hero {
+      width: 100%;
+      height: 80vh;
+      background-color: #800505;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .hero-avatar {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+    .hero-name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      letter-spacing: 0.5px;
+    }
+    .hero-tagline {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      text-align: center;
+      max-width: 700px;
+      padding: 0 1rem;
+    }
+    .scroll-down {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      animation: bounce 2s infinite;
+    }
+    .scroll-down svg { display: block; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ══════════════════════════════
+       DIV 3 — LIENS HORIZONTAUX
+    ══════════════════════════════ */
+    .links-section {
+      width: 100%;
+      padding: 5rem 2rem;
+      padding-bottom: 20px;
+      height: 70vh;
+      background-color: #800504;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .links-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .links-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #f3f3f3;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      margin-top: 4px;
+    }
+    .links-row {
+      padding-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    .link-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 1.4rem 2rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: #fffafa;
+      text-decoration: none;
+      min-width: 130px;
+      transition: background 0.18s, transform 0.15s;
+      backdrop-filter: blur(8px);
+    }
+    .link-card:hover {
+      background: rgba(0,0,0,0.3);
+      transform: translateY(-4px);
+    }
+    .link-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tiktok-bg { background: #010101; }
+    .wattpad-bg { background: #f68c1e; }
+    .link-card-label { font-size: 13px; font-weight: 600; letter-spacing: 0.3px; }
+
+    /* ══════════════════════════════
+       DIV 4 — FOOTER
+    ══════════════════════════════ */
+    .footer {
+      width: 100%;
+      height: 30vh;
+      padding: 3rem 2rem;
+      background-color: #670202;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255, 246, 246, 0.68);
+    }
+    .footer-divider {
+      width: 40px;
+      height: 2px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.4);
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DIV 1 — HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <img class="hero-avatar" src="/0.jpg" alt="روزالِنٓ"/>
+      <div class="hero-name">روزالِـــنٓ</div>
+      <div class="hero-tagline">يقولون .. أن الأرواح حين تعجز ، تفيض بها العيون ،
+و أناملي كذبت ذلك ، لتولد الحروف بدلا من ذلك فتنبثق عوالم لابد أن تحتفض بجزأ منك ،،، عزيزي القارئ انتبه فدخولك هنا يعني سرقة شيء منك !</div>
+    </div>
+    <div class="scroll-down">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </div>
+
+  <!-- DIV 3 — LIENS -->
+  <div class="links-section">
+    <div class="links-inner">
+      <div>
+        <div class="section-label">Me retrouver</div>
+        <div class="section-title">My accounts 🔗</div>
+      </div>
+      <div class="links-row">
+
+        <a class="link-card" href="https://www.tiktok.com/@rovz_7?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">
+          <div class="link-icon-wrap tiktok-bg">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+            </svg>
+          </div>
+          <span class="link-card-label">TikTok</span>
+        </a>
+
+        <a class="link-card" href="https://www.wattpad.com/user/rovz_7" target="_blank" rel="noopener">
+          <div class="link-icon-wrap wattpad-bg">
+            <svg width="26" height="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <text x="3" y="19" font-size="17" font-family="serif" font-weight="bold" fill="white">W</text>
+            </svg>
+          </div>
+          <span class="link-card-label">Wattpad</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DIV 4 — FOOTER -->
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="footer-name">rovz_7</div>
+      <div class="footer-divider"></div>
+      <div class="footer-tagline">autrice rozalina</div>
+      <div class="footer-copy">© 2026 — Fait avec F❤️</div>
+    </div>
+  </div>
+
+</body>
+</html>
